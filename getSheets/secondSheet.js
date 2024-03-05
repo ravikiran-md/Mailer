@@ -6,7 +6,7 @@ const startOfDay = require("./firstSheet");
 const endOfDay = require("./firstSheet");
 const db = client.db(process.env.dbName);
 const shona_logs = db.collection("shona_click_logs");
-const secondFilePath = "./excelSheets/SecondSheet.xlsx";
+const secondFilePath = "./excelSheets/click_log_stats.xlsx";
 
 const GetSecondSheetData = async () => {
   const secondSheet = await shona_logs
@@ -40,7 +40,7 @@ const GetSecondSheetData = async () => {
 
     // Write Excel files
 
-    XLSX.writeFile(workBook2, "./excelSheets/SecondSheet.xlsx");
+    XLSX.writeFile(workBook2, "./excelSheets/click_log_stats.xlsx");
 
     console.log("Got data and created Second Excel sheet.");
   } else {

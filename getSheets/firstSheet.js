@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 const XLSX = require("xlsx");
 const fs = require("fs");
-const buttonFilePath = "./excelSheets/Button.xlsx";
+const buttonFilePath = "./excelSheets/click_logs.xlsx";
 const client = new MongoClient(process.env.connection_string);
 const db = client.db(process.env.dbName);
 const shona_logs = db.collection("shona_click_logs");
@@ -45,7 +45,7 @@ const GetFirstSheetData = async () => {
   } else {
     if (fs.existsSync(buttonFilePath)) {
       fs.unlinkSync(buttonFilePath);
-      console.log("Button.xlsx deleted successfully");
+      console.log("click_logs.xlsx deleted successfully");
     } else {
       console.log("No Data from Button ");
     }

@@ -6,7 +6,7 @@ const startOfDay = require("./firstSheet");
 const endOfDay = require("./firstSheet");
 const db = client.db(process.env.dbName);
 const logs = db.collection("logs");
-const thirdSheetFilePath = "./excelSheets/ThirdSheet.xlsx";
+const thirdSheetFilePath = "./excelSheets/conversation_logs.xlsx";
 
 const GetThirdSheetData = async () => {
   const thirdSheet = await logs
@@ -33,13 +33,13 @@ const GetThirdSheetData = async () => {
 
     // Write Excel files
 
-    XLSX.writeFile(workBook3, "./excelSheets/ThirdSheet.xlsx");
+    XLSX.writeFile(workBook3, "./excelSheets/conversation_logs.xlsx");
 
     console.log("Got data and created Excel sheets.");
   } else {
     if (fs.existsSync(thirdSheetFilePath)) {
       fs.unlinkSync(thirdSheetFilePath);
-      console.log("ThirdSheet.xlsx deleted successfully");
+      console.log("conversation_logs.xlsx deleted successfully");
     } else {
       console.log("No Data from Third Sheet");
     }
